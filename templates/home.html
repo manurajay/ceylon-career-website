@@ -1,85 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Ceylon Careers</title>
-    <style>
-      h1{
-        font-size: 40px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(100, 100, 100);
-        text-align: center;
-      }
-      #banner_img{
-        width: 100%;
-        height: 360px;
-        object-fit: cover; 
-      }
-      h2{
-        font-size: 30px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(90, 90, 90);
-        text-align: center;
-      }
-      h4{
-        font-size: 15px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: black;
-        text-align: center;
-      }
-      #container{
-        max-width: 720px;
-        margin: 0 auto;
-      }
-      #contact_us{
-        justify-content: center;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
+
+<head>
+  <title>Ceylon Careers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    #header {
+      background-color: #007bff;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    #banner_img {
+      height: 360px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    #about,
+    #job_list {
+      margin-top: 20px;
+    }
+
+    #about h2,
+    #job_list h2 {
+      color: #007bff;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+
+    .job_1,
+    .job_2,
+    .job_3,
+    .job_4 {
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .apply_button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .apply_button:hover {
+      background-color: #218838;
+    }
+
+    .contact_button {
+      background-color: #ffc107;
+      color: #212529;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .contact_button:hover {
+      background-color: #e0a800;
+    }
+
+    #footer {
+      margin-top: 20px;
+      background-color: #007bff;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
     <div id="header">
       <h1>Ceylon Careers</h1>
     </div>
-    <div id="banner_img">
-      <img src="https://cdn.syncfusion.com/content/images/Careers/career-logo.png" height="320">
-    </div>
+    <img src="https://cdn.syncfusion.com/content/images/Careers/career-logo.png" class="img-fluid"
+      alt="Ceylon Careers Logo">
     <div id="about">
       <h2>About Us</h2>
-      <h4>Discover unparalleled job opportunities in Sri Lanka with us – the premier job placement experts. Navigate through the latest and finest job listings, applying effortlessly. Committed to delivering top-notch services, we strive to empower our clients with the best career options, ensuring a seamless and successful job search experience.</h4>
+      <p>Discover unparalleled job opportunities in Sri Lanka with us – the premier job placement experts. Navigate
+        through the latest and finest job listings, applying effortlessly. Committed to delivering top-notch services,
+        we strive to empower our clients with the best career options, ensuring a seamless and successful job search
+        experience.</p>
     </div>
     <div id="job_list">
-      <h2>Latest job openings</h2>
-      <div class="openings">
-        <div class="job_1">
-          <h3>Software Engineer</h3>
-          <p>Colombo, Sri Lanka</p>
-          <button type="submit" class="apply_button">Apply</button>
-        </div>
-        <div class="job_2">
-          <h3>Backend Developer</h3>
-          <p>Trace City, Sri Lanka</p>
-          <button type="submit" class="apply_button">Apply</button>
-        </div>
-        <div class="job_3">
-          <h3>UX/UI Engineer</h3>
-          <p>Kandy, Sri Lanka</p>
-          <button type="submit" class="apply_button">Apply</button>
-        </div>
-        <div class="job_4">
-          <h3>System Engineer</h3>
-          <p>Jaffna, Sri Lanka</p>
-          <button type="submit" class="apply_button">Apply</button>
-        </div>
+      <h2>Latest Job Openings</h2>
+      <div class="row">
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}
       </div>
-      <div id="contact_us">
+      <div id="contact_us" class="text-center mt-4">
         <button type="button" class="contact_button">Contact Us</button>
       </div>
     </div>
-    <div id="footer">
-      <h3>Copyright © 2024 Ceylon Careers. All Right Reserved</h3>
+    <div id="footer" class="mt-5">
+      <p>Copyright © 2024 Ceylon Careers. All Rights Reserved</p>
     </div>
-  </body>
+  </div>
+
+  <!-- Additional Bootstrap components or custom styles can be added here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-GLhlTQ8iK5uKIep6HUzrnUz7D/ZlRR7S6enLRY6Ll6U6pOEeLY/gsFyoay3XIhFZ" crossorigin="anonymous"></script>
+</body>
+
 </html>

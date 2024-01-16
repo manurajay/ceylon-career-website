@@ -1,0 +1,9 @@
+<div class="col-md-6">
+  <div class="job_1">
+    <h3>{{job['title']}} </h3> 
+    <p>{{job['location']}} | {% if 'salary' in job %}
+                              {{job['salary']}}
+                                {% endif %}</p>
+    <button type="submit" class="apply_button">Apply</button>
+  </div>
+</div>
